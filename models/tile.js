@@ -21,6 +21,6 @@ class Tile {
   }
 
   _unitSizes(){
-  	return (this.units.map(function(unit){return unit.size})
+  	return (this.units.map(function(unit){return unit.size}))
   }
 };
