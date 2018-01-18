@@ -16,9 +16,7 @@ dont = function (test) {
 
 Expect.prototype.toEqual = function (parameter) {
   this.message = `to equal ${parameter}`
-  console.log (this.parameter+ ': ' + parameter)
   this.result = (this.parameter === parameter)
-  console.log(this.result)
   return this
 }
 
@@ -56,7 +54,7 @@ function Test(name, lines){
 Test.prototype.run = function(){
   document.getElementById('tests').innerHTML += `<div id="tests" class="container-flex it-title"><h4>${this.name}</h4></div>`;
   this.lines.forEach(function(line){
-    if (line instanceof Expect){console.log(line); line.formatResult()}
+    if (line instanceof Expect){line.formatResult()}
   })
 }
 
