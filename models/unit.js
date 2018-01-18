@@ -1,5 +1,5 @@
 class Unit{
-  constructor(name, vehicleAttack, infantryAttack, vehicleDefense, infantryDefense, unitType, movementRange){
+  constructor(name, vehicleAttack, infantryAttack, vehicleDefense, infantryDefense, unitType, movementRange, tile, player){
     this.name = name;
     this.vehicleAttack = vehicleAttack;
     this.infantryAttack = infantryAttack;
@@ -7,6 +7,8 @@ class Unit{
     this.infantryDefense = infantryDefense;
     this.unitType = unitType;
     this.movementRange = movementRange;
+    this.tile = tile;
+    this.player = player;
   }
 
   move(){}
@@ -25,5 +27,10 @@ class Unit{
     } else {
       return this.infantryDefense;
     }
+  }
+
+  die(){
+    this.tile.remove(this);
+    this.player.remove(this);
   }
 }
