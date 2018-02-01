@@ -21,3 +21,5 @@ MVP:
 - Units can move around the board in legal positions
 - Units can attack other units
 - When one player has no units the game ends
+
+*** Units can move after attacking
