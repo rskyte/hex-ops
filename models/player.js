@@ -1,5 +1,5 @@
 class Player {
-  contructor(){
+  constructor(){
     this.units = [];
   }
 
