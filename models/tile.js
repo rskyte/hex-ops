@@ -25,7 +25,7 @@ class Tile {
   //returns a random unit defending this tile, battle logic will be within it's
   //own class or within the board class initially.
   defend(){
-  	return (this.units[Math.floor(Math.random * this.units.length)])
+  	return (this.units[Math.floor(Math.random() * this.units.length)])
   }
 
   _unitSizes(){
