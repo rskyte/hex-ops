@@ -17,6 +17,10 @@ describe("Tile", [
 
   it("capacity can be set on construction of tile", [
     expect(new Tile(9).CAPACITY).toEqual(9)
+  ]),
+
+  it("have an x and y coordinate with a default value of 0", [
+    expect(testTile.x === 0 && testTile.y === 0).toEqual(true)
   ])
 ])
 
