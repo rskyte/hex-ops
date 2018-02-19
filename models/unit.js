@@ -1,5 +1,5 @@
 class Unit{
-  constructor(name, vehicleAttack, infantryAttack, vehicleDefense, infantryDefense, unitType, movementRange, tile, player){
+  constructor(name, vehicleAttack, infantryAttack, vehicleDefense, infantryDefense, unitType, movementRange, size = 1, tile, player){
     this.name = name;
     this.vehicleAttack = vehicleAttack;
     this.infantryAttack = infantryAttack;
@@ -7,6 +7,7 @@ class Unit{
     this.infantryDefense = infantryDefense;
     this.unitType = unitType;
     this.movementRange = movementRange;
+    this.size = size;
     this.tile = tile;
     this.player = player;
   }
