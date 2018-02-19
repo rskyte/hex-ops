@@ -1,9 +1,3 @@
-class FakeUnit {
-  constructor(size) {
-    this.size = size
-  }
-}
-
 testTile = new Tile
 
 describe("Tile", [
@@ -70,11 +64,8 @@ describe("Tile#defend", [
 
   //Will cause difficulties later on with other functions calling on Math.random
   it("Math.random should be called", [
-    mathRandomCalled = false,
-    Math.random = function() {
-      mathRandomCalled = true
-    },
-    testTile.defend(),
-    expect(mathRandomCalled).toEqual(true)
+    randomCalled = false,
+    testTile.defend(QuickMath),
+    expect(randomCalled).toEqual(true)
   ])
 ])
