@@ -16,5 +16,12 @@ describe("Board#determineWinner", [
 describe("Board#rollDice", [
   it("should return an integer", [
     expect(Number.isInteger(testBoard.rollDice(4))).toEqual(true)
+  ]),
+
+  it("should call random", [
+    randomCalled = false,
+    testBoard.rollDice(1, QuickMath),
+    expect(randomCalled).toEqual(true)
   ])
+
 ])
