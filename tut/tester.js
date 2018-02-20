@@ -39,9 +39,9 @@ Expect.prototype.formatResult = function () {
 
 beforeEach = function(lines, test) {
   lines.forEach(function(line) {
-    line
+    line;
   })
-  test.run()
+  test.run();
 }
 
 beforeCommands = []
@@ -52,8 +52,8 @@ describe = function (name, its) {
   its.forEach(function (test) {
     if(test instanceof Test) {
       beforeEach(beforefunc, test)
-    }
-  })
+    };
+  });
   // document.getElementById('tests').innerHTML += ;
 };
 
