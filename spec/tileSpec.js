@@ -22,13 +22,13 @@ describe("Tile#add", [
   it("can add a unit into the tile's unit array", [
     fakeUnit1 = new FakeUnit(1),
     testTile.add(fakeUnit1),
-    expect(testTile.units.includes(fakeUnit1)).toEqual(true)
+    expect(testTile.units).toContain(fakeUnit1)
   ]),
 
   it("cannot add a unit that is too large into the tile's unit array", [
     fakeUnit2 = new FakeUnit(8),
     testTile.add(fakeUnit2),
-    expect(testTile.units.includes(fakeUnit2)).toEqual(false)
+    expect(testTile.units).toContain(fakeUnit2)
   ])
 ])
 
@@ -43,7 +43,7 @@ describe("Tile#remove", [
     fakeUnit3 = new FakeUnit(1),
     testTile.add(fakeUnit3),
     testTile.remove(fakeUnit3),
-    expect(testTile.units.includes(fakeUnit3)).toEqual(false)
+    expect(testTile.units).toContain(fakeUnit3)
   ])
 ])
 
