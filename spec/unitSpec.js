@@ -1,9 +1,15 @@
 var fakeTile = []
 var fakePlayer = []
-test_soldier = new Unit('soldier', 1, 2, 1, 2, 'infantry', 3, fakeTile, fakePlayer)
-test_tank = new Unit('tank', 2, 2, 1, 2, 'vehicle', 4, 'n/a', 'n/a')
+test_soldier = new Unit('soldier', 1, 2, 1, 2, 'infantry', 3, 1, fakeTile, fakePlayer)
+test_tank = new Unit('tank', 2, 2, 1, 2, 'vehicle', 4, 3, 'n/a', 'n/a')
 fakeTile.push(test_soldier)
 fakePlayer.push(test_soldier)
+
+describe("Unit#size", [
+  it("should be a default of 1 if not defined", [
+    expect(new Unit('unit', 1, 1, 1, 1, 'unit', 1, undefined,'none', 'none').size).toEqual(1)
+  ])
+])
 
 describe("Unit#attack", [
   it("returns the unit's vehicle attack when attacking a vehicle",[
