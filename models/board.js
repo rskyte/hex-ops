@@ -9,7 +9,7 @@ class Board{
   	for(var x = -this.size; x <= this.size; x++){
   	  for(var y = -this.size; y<= this.size; y++){
   	    if(Math.abs(x+y) <= this.size){
-  	      this._setTile(x,y, new Tile(tileCapacity,x,y))
+  	      this._setTile(x,y, new Tile(this.tileCapacity,x,y))
   	    }
   	  }
   	}
