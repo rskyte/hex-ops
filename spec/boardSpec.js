@@ -10,15 +10,15 @@ boardToString = function(board){
    }
   }).toString()+"]"}).toString()
 }
-hexBoard =`[,,,,X,X,X,X,X],
-           [,,,X,X,X,X,X,X],
-           [,,X,X,X,X,X,X,X],
-           [,X,X,X,X,X,X,X,X],
-           [X,X,X,X,X,X,X,X,X],
-           [X,X,X,X,X,X,X,X,],
-           [X,X,X,X,X,X,X,,],
-           [X,X,X,X,X,X,,,],
-           [X,X,X,X,X,,,,]`
+hexBoard ='[,,,,X,X,X,X,X],' +
+          '[,,,X,X,X,X,X,X],' +
+          '[,,X,X,X,X,X,X,X],' +
+          '[,X,X,X,X,X,X,X,X],' +
+          '[X,X,X,X,X,X,X,X,X],' +
+          '[X,X,X,X,X,X,X,X,],' +
+          '[X,X,X,X,X,X,X,,],' +
+          '[X,X,X,X,X,X,,,],' +
+          '[X,X,X,X,X,,,,]'
 
 describe("Board#tile", [
   it("should return an element in the tiles array, using co-ords centred on the board size", [
