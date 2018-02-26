@@ -1,6 +1,7 @@
 class Board{
-  constructor(size = 4){
+  constructor(size = 4, tileCapacity = 6){
   	this.size = size
+  	this.tileCapacity = tileCapacity
   	this.tiles = new Array(size * 2 + 1).fill(0).map(function(){return new Array(size * 2 + 1)})
   }
 
@@ -8,7 +9,7 @@ class Board{
   	for(var x = -this.size; x <= this.size; x++){
   	  for(var y = -this.size; y<= this.size; y++){
   	    if(Math.abs(x+y) <= this.size){
-  	      this._setTile(x,y, new Tile)
+  	      this._setTile(x,y, new Tile(tileCapacity,x,y))
   	    }
   	  }
   	}
