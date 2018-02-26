@@ -1,9 +1,24 @@
 testBoard = new Board
 
 boardToString = function(board){
- return board.tiles.map(function(arr){return "[" + arr.map(function(tile){if(tile){return'X'} else {return 'O'}}).toString()+"]"}).toString()
+ return board.tiles.map(function(arr){
+  return "[" + arr.map(function(tile){
+   if(tile){
+    return'X'
+   } else {
+    return 'O'
+   }
+  }).toString()+"]"}).toString()
 }
-hexBoard =`[,,,,X,X,X,X,X],[,,,X,X,X,X,X,X],[,,X,X,X,X,X,X,X],[,X,X,X,X,X,X,X,X],[X,X,X,X,X,X,X,X,X],[X,X,X,X,X,X,X,X,],[X,X,X,X,X,X,X,,],[X,X,X,X,X,X,,,],[X,X,X,X,X,,,,]`
+hexBoard =`[,,,,X,X,X,X,X],
+           [,,,X,X,X,X,X,X],
+           [,,X,X,X,X,X,X,X],
+           [,X,X,X,X,X,X,X,X],
+           [X,X,X,X,X,X,X,X,X],
+           [X,X,X,X,X,X,X,X,],
+           [X,X,X,X,X,X,X,,],
+           [X,X,X,X,X,X,,,],
+           [X,X,X,X,X,,,,]`
 
 describe("Board#tile", [
   it("should return an element in the tiles array, using co-ords centred on the board size", [
