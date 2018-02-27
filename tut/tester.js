@@ -37,6 +37,8 @@ Expect.prototype.formatResult = function () {
   }
 }
 
+setup = function(){}
+
 describe = function (name, its) {
   document.getElementById('tests').innerHTML += `<div class="testTitle"><h3>${name}</h3></div>`;
   its.forEach(function (test) {
@@ -59,8 +61,15 @@ Test.prototype.run = function(){
 }
 
 it = function (name, lines) {
+  setup()
   return (new Test(name,lines))
 };
+
+beforeEach= function(callback){
+  setup = callback
+  setup()
+}
+
 
 runSpec = function(){
   specName = document.getElementById('specname').value
@@ -81,5 +90,3 @@ loadSpec = function(path) {
   xhttp.open("GET", path, true);
   xhttp.send();
 }
-
-
