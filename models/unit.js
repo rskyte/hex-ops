@@ -12,7 +12,11 @@ class Unit{
     this.player = player;
   }
 
-  move(){}
+  moveTo(tile){
+    tile.add(this)
+    this.tile.remove(this)
+    this.tile = tile
+  }
 
   attack(unit){
     if(unit.unitType === "vehicle"){

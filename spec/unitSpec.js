@@ -1,4 +1,5 @@
 var fakeTile = []
+var fakeTile2 = []
 var fakePlayer = []
 test_soldier = new Unit('soldier', 1, 2, 1, 2, 'infantry', 3, 1, fakeTile, fakePlayer)
 test_tank = new Unit('tank', 2, 2, 1, 2, 'vehicle', 4, 3, 'n/a', 'n/a')
@@ -10,6 +11,17 @@ describe("Unit#size", [
     expect(new Unit('unit', 1, 1, 1, 1, 'unit', 1, undefined,'none', 'none').size).toEqual(1)
   ])
 ])
+
+describe("Unit#moveTo",[
+  it("should add the unit to the new tile",[
+    test_soldier.moveTo(fakeTile2),
+    expect(fakeTile2).toContain(test_soldier)
+    ]),
+  it("should remove it from the old tile",[
+    test_soldier.moveTo(fakeTile), //test_soldier is currently on fakeTile2 (this is why describe blocks need a before each test capability)
+    dont(expect(fakeTile2).toContain(test_soldier))
+    ])
+  ])
 
 describe("Unit#attack", [
   it("returns the unit's vehicle attack when attacking a vehicle",[
