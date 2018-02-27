@@ -13,9 +13,15 @@ class Unit{
   }
 
   moveTo(tile){
-    tile.add(this)
-    this.tile.remove(this)
-    this.tile = tile
+    if(this._canMoveTo(tile)){
+      tile.add(this)
+      this.tile.remove(this)
+      this.tile = tile
+    }
+  }
+
+  _canMoveTo(tile){
+    return Math.abs(this.tile.x - tile.x + this.tile.y - tile.y) <= 1
   }
 
   attack(unit){
