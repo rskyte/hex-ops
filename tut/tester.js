@@ -44,7 +44,6 @@ describe = function (name, its) {
   its.forEach(function (test) {
     test.run()
   })
-  setup()
   // document.getElementById('tests').innerHTML += ;
 
 };
@@ -91,5 +90,3 @@ loadSpec = function(path) {
   xhttp.open("GET", path, true);
   xhttp.send();
 }
-
-
