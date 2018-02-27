@@ -68,6 +68,7 @@ it = function (name, lines) {
 
 beforeEach= function(callback){
   setup = callback
+  setup()
 }
 
 
