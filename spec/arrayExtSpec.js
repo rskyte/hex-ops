@@ -18,3 +18,10 @@ describe("Array#remove",[
     expect(array).toContain(1)
     ])
   ])
+describe("Array#add",[
+  it("adds the item to the array",[
+    array = [],
+    array.add(1),
+    expect(array).toContain(1)
+    ])
+  ])
