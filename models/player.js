@@ -1,12 +1,12 @@
 class Player {
-  constructor(startTile){
+  constructor(startTile, spawnpool = []){
     this.units = [];
-    this.spawnPool = [];
+    this.spawnPool = spawnpool;
     this.startTile = startTile;
   }
 
   spawn(unit){
-  	this.startTile.add(unit);
+  	this.startTile.add(this.spawnPool.remove(unit));
   }
 
   remove(unit){
