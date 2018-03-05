@@ -4,20 +4,24 @@ function Mocktile(){
 Mocktile.prototype.add = function(unit){ this.units.push(unit)}
 Mocktile.prototype.remove = function(unit){ this.units.remove(unit)}
 
-var fakeTile = new Mocktile()
-fakeTile.x = 0
-fakeTile.y = 0
-var fakeTile2 = new Mocktile()
-fakeTile2.x = 1
-fakeTile2.y = -1
-var fakeTile3 = new Mocktile()
-fakeTile3.x = 1
-fakeTile3.y = 1 
-var fakePlayer = []
-test_soldier = new Unit('soldier', 1, 2, 1, 2, 'infantry', 3, 1, fakeTile, fakePlayer)
-test_tank = new Unit('tank', 2, 2, 1, 2, 'vehicle', 4, 3, 'n/a', 'n/a')
-fakeTile.add(test_soldier)
-fakePlayer.add(test_soldier)
+beforeEach(function(){
+  fakeTile = new Mocktile()
+  fakeTile.x = 0
+  fakeTile.y = 0
+  fakeTile2 = new Mocktile()
+  fakeTile2.x = 1
+  fakeTile2.y = -1
+  fakeTile3 = new Mocktile()
+  fakeTile3.x = 1
+  fakeTile3.y = 1 
+  var fakePlayer = []
+  test_soldier = new Unit('soldier', 1, 2, 1, 2, 'infantry', 3, 1, fakeTile, fakePlayer)
+  test_tank = new Unit('tank', 2, 2, 1, 2, 'vehicle', 4, 3, 'n/a', 'n/a')
+  fakeTile.add(test_soldier)
+  fakePlayer.add(test_soldier)
+})
+
+
 
 describe("Unit#size", [
   it("should be a default of 1 if not defined", [
@@ -31,8 +35,8 @@ describe("Unit#moveTo",[
     expect(fakeTile2.units).toContain(test_soldier)
     ]),
   it("should remove it from the old tile",[
-    test_soldier.moveTo(fakeTile), //test_soldier is currently on fakeTile2 (this is why describe blocks need a before each test capability)
-    dont(expect(fakeTile2.units).toContain(test_soldier))
+    test_soldier.moveTo(fakeTile2), 
+    dont(expect(fakeTile.units).toContain(test_soldier))
     ]),
   it("shouldn't be able to move to tiles that are not adjacent",[
     test_soldier.moveTo(fakeTile3),
