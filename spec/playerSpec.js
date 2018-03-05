@@ -5,8 +5,11 @@ MockTile.prototype.add = function(unit){
   this.units.push(unit)
 }
 
-startTile = new MockTile()
-player = new Player(startTile,["Awesome Tank", "Less Awesome Tank"])
+beforeEach(function(){
+  startTile = new MockTile()
+  player = new Player(startTile,["Awesome Tank", "Less Awesome Tank"])
+})
+
 console.log(player.spawnPool)
 describe("Player#units", [
   it("should be an array", [
