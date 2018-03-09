@@ -13,9 +13,9 @@ beforeEach(function(){
   fakeTile2.y = -1
   fakeTile3 = new Mocktile()
   fakeTile3.x = 1
-  fakeTile3.y = 1 
+  fakeTile3.y = 1
   var fakePlayer = []
-  test_soldier = new Unit('soldier', 1, 2, 1, 2, 'infantry', 3, 1, fakeTile, fakePlayer)
+  test_soldier = new Unit('soldier', 1, 2, 1, 2, 'infantry', 2, 1, fakeTile, fakePlayer)
   test_tank = new Unit('tank', 2, 2, 1, 2, 'vehicle', 4, 3, 'n/a', 'n/a')
   fakeTile.add(test_soldier)
   fakePlayer.add(test_soldier)
@@ -33,16 +33,22 @@ describe("Unit#moveTo",[
   it("should add the unit to the new tile",[
     test_soldier.moveTo(fakeTile2),
     expect(fakeTile2.units).toContain(test_soldier)
-    ]),
+  ]),
   it("should remove it from the old tile",[
-    test_soldier.moveTo(fakeTile2), 
+    test_soldier.moveTo(fakeTile2),
     dont(expect(fakeTile.units).toContain(test_soldier))
-    ]),
+  ]),
   it("shouldn't be able to move to tiles that are not adjacent",[
     test_soldier.moveTo(fakeTile3),
     dont(expect(fakeTile3.units).toContain(test_soldier))
-    ])
+  ]),
+  it("should not move unit if that would exceed unit movement range", [
+    test_soldier.moveTo(fakeTile2),
+    test_soldier.moveTo(fakeTile),
+    test_soldier.moveTo(fakeTile2),
+    expect(fakeTile.units).toContain(test_soldier)
   ])
+])
 
 describe("Unit#attack", [
   it("returns the unit's vehicle attack when attacking a vehicle",[

@@ -7,6 +7,7 @@ class Unit{
     this.infantryDefense = infantryDefense;
     this.unitType = unitType;
     this.movementRange = movementRange;
+    this.rangeCounter = 0;
     this.size = size;
     this.tile = tile;
     this.player = player;
@@ -17,11 +18,13 @@ class Unit{
       tile.add(this)
       this.tile.remove(this)
       this.tile = tile
+      this.rangeCounter++
     }
   }
 
   _canMoveTo(tile){
-    return Math.abs(this.tile.x - tile.x + this.tile.y - tile.y) <= 1
+    return (Math.abs(this.tile.x - tile.x + this.tile.y - tile.y) <= 1) &&
+      (this.rangeCounter < this.movementRange)
   }
 
   attack(unit){
