@@ -75,3 +75,11 @@ describe("Unit#die", [
     expect(fakeTile.units.length).toEqual(0)
   ])
 ])
+
+describe("Unit#resetRangeCounter", [
+  it("unit range counter can be reset", [
+    test_soldier.moveTo(fakeTile2),
+    test_soldier.resetRangeCounter(),
+    expect(test_soldier.rangeCounter).toEqual(0)
+  ])
+])

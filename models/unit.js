@@ -1,3 +1,4 @@
+var UNIT_RANGE_COUNTER_RESET = 0;
 class Unit{
   constructor(name, vehicleAttack, infantryAttack, vehicleDefense, infantryDefense, unitType, movementRange, size = 1, tile, player){
     this.name = name;
@@ -7,7 +8,7 @@ class Unit{
     this.infantryDefense = infantryDefense;
     this.unitType = unitType;
     this.movementRange = movementRange;
-    this.rangeCounter = 0;
+    this.rangeCounter = UNIT_RANGE_COUNTER_RESET;
     this.size = size;
     this.tile = tile;
     this.player = player;
@@ -46,5 +47,9 @@ class Unit{
   die(){
     this.tile.remove(this);
     this.player.remove(this);
+  }
+
+  resetRangeCounter(){
+    this.rangeCounter = UNIT_RANGE_COUNTER_RESET
   }
 }
