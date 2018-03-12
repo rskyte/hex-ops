@@ -47,6 +47,10 @@ describe("Unit#moveTo",[
     test_soldier.moveTo(fakeTile),
     test_soldier.moveTo(fakeTile2),
     expect(fakeTile.units).toContain(test_soldier)
+  ]),
+  it("successful moves increment rangeCounter by 1",[
+    test_soldier.moveTo(fakeTile2),
+    expect(test_soldier.rangeCounter).toEqual(1)
   ])
 ])
 
