@@ -12,6 +12,8 @@ class Unit{
     this.size = size;
     this.tile = tile;
     this.player = player;
+    this.img = new Image;
+    this.img.src = `imgs/${this.name}.png`
   }
 
   moveTo(tile){
