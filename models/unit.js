@@ -49,6 +49,10 @@ class Unit{
     this.player.remove(this);
   }
 
+  clone(){
+    return Object.assign(new Unit(), this)
+  }
+
   resetRangeCounter(){
     this.rangeCounter = UNIT_RANGE_COUNTER_RESET
   }
