@@ -1,3 +1,4 @@
+var UNIT_RANGE_COUNTER_RESET = 0;
 class Unit{
   constructor(name, vehicleAttack, infantryAttack, vehicleDefense, infantryDefense, unitType, movementRange, size = 1, tile, player){
     this.name = name;
@@ -7,6 +8,7 @@ class Unit{
     this.infantryDefense = infantryDefense;
     this.unitType = unitType;
     this.movementRange = movementRange;
+    this.rangeCounter = UNIT_RANGE_COUNTER_RESET;
     this.size = size;
     this.tile = tile;
     this.player = player;
@@ -17,11 +19,13 @@ class Unit{
       tile.add(this)
       this.tile.remove(this)
       this.tile = tile
+      this.rangeCounter++
     }
   }
 
   _canMoveTo(tile){
-    return Math.abs(this.tile.x - tile.x + this.tile.y - tile.y) <= 1
+    return (Math.abs(this.tile.x - tile.x + this.tile.y - tile.y) <= 1) &&
+      (this.rangeCounter < this.movementRange)
   }
 
   attack(unit){
@@ -43,5 +47,9 @@ class Unit{
   die(){
     this.tile.remove(this);
     this.player.remove(this);
+  }
+
+  resetRangeCounter(){
+    this.rangeCounter = UNIT_RANGE_COUNTER_RESET
   }
 }
