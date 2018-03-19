@@ -101,3 +101,15 @@ describe("Unit#resetRangeCounter", [
     expect(test_soldier.rangeCounter).toEqual(0)
   ])
 ])
+
+describe("Unit#clone",[
+  it("makes a duplicate of the unit",[
+    clone = test_soldier.clone(),
+    expect(clone.name).toEqual('soldier')
+  ]),
+  it("the clone should not be the same object",[
+    clone = test_soldier.clone(),
+    clone.name = 'clone',
+    dont(expect(test_soldier.name).toEqual('clone'))
+  ])
+])

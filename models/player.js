@@ -7,6 +7,7 @@ class Player {
 
   spawn(unit){
   	this.startTile.add(this.spawnPool.remove(unit));
+    unit.tile = this.startTile;
   }
 
   remove(unit){
