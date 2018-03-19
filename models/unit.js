@@ -28,7 +28,11 @@ class Unit{
       (this.rangeCounter < this.movementRange)
   }
 
-  attack(unit){
+  attackTile(tile){
+    return tile.defend()
+  }
+
+  attackUnit(unit){
     if(unit.unitType === "vehicle"){
       return this.vehicleAttack;
     } else {

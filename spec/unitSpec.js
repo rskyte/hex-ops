@@ -1,8 +1,12 @@
 function Mocktile(){
   this.units = []
 }
-Mocktile.prototype.add = function(unit){ this.units.push(unit)}
-Mocktile.prototype.remove = function(unit){ this.units.remove(unit)}
+Mocktile.prototype.add = function(unit){ this.units.push(unit) }
+Mocktile.prototype.remove = function(unit){ this.units.remove(unit) }
+Mocktile.prototype.defend = function(){
+  console.log(this)
+  return this.units[0]
+ }
 
 beforeEach(function(){
   fakeTile = new Mocktile()
@@ -19,9 +23,9 @@ beforeEach(function(){
   test_tank = new Unit('tank', 2, 2, 1, 2, 'vehicle', 4, 3, 'n/a', 'n/a')
   fakeTile.add(test_soldier)
   fakePlayer.add(test_soldier)
+  function func() { return test_tank.attackTile(fakeTile) }
+  testAttack = func.bind(fakeTile)
 })
-
-
 
 describe("Unit#size", [
   it("should be a default of 1 if not defined", [
@@ -54,12 +58,22 @@ describe("Unit#moveTo",[
   ])
 ])
 
-describe("Unit#attack", [
+describe("Unit#attackTile", [
+  it("returns a defending unit when a unit attacks a tile",[
+    expect(testAttack()).toEqual(test_soldier)
+  ])
+  // it("units cannot attack tiles they are on",[
+  //   test_soldier.attackTile(fakeTile),
+  //   expect("some error code executed")
+  // ])
+])
+
+describe("Unit#attackUnit", [
   it("returns the unit's vehicle attack when attacking a vehicle",[
-    expect(test_soldier.attack(test_tank)).toEqual(1)
+    expect(test_soldier.attackUnit(test_tank)).toEqual(1)
   ]),
   it("returns the unit's infantry attack when attacking an infantry unit", [
-    expect(test_soldier.attack(test_soldier)).toEqual(2)
+    expect(test_soldier.attackUnit(test_soldier)).toEqual(2)
   ])
 ])
 
